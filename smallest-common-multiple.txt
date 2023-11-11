@@ -1,0 +1,25 @@
+function smallestCommons(arr) {
+  const getSmallestCommon = (less, more) => {
+    for(let m=more;m<=less*more;m++){
+      if( (m%less)===0 && (m%more)==0) return m;
+    }
+  }
+  let smallestCommon,first,last;
+  if(arr[0]<arr[1]){
+    [first,last] = arr;  
+  } else {
+    [last,first] = arr;
+  }
+  smallestCommon = first;
+  for(let i=first;i<=last;i++){
+    console.log(smallestCommon,i)
+    if(smallestCommon % i) {
+      smallestCommon = getSmallestCommon(i,smallestCommon);
+    }
+    //console.log(i,smallestCommon)
+  }
+  //console.log(smallestCommon)
+  return smallestCommon;
+}
+
+smallestCommons([1,5]);

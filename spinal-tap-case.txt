@@ -1,0 +1,35 @@
+function spinalCase(str) {
+  let newStr = "";
+let isWord = false;
+let isAdd = false;
+const upperLetter = new RegExp("[A-Z]");
+const lowerLetter = new RegExp("[a-z]");
+
+for(let i=0;i<str.length;i++){
+  if( upperLetter.test(str[i]) ){
+    if(isAdd){
+      newStr += "-";
+    }
+    newStr += str[i].toLowerCase();
+    isAdd = true;
+    isWord = true;
+  } else if(lowerLetter.test(str[i])){
+    if(!isWord) {
+      if(isAdd){
+        newStr += "-";
+      }
+    }
+    newStr += str[i];
+    isAdd = true;
+    isWord = true;
+  } else {
+    if(isWord){
+      isWord=false;
+    }
+  }
+}
+console.log(newStr)
+return newStr;
+}
+
+spinalCase('This Is Spinal Tap');

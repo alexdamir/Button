@@ -1,0 +1,20 @@
+function sumPrimes(num) {
+  const isPrimeNum = n=> {
+    for(let k=2;k<n;k++){
+      if(!(n%k)) return false;
+    }
+    return true;
+  }
+  let sum = 0;
+  console.log("(",num,")")
+  for(let i=2;i<=num;i++){
+    if(isPrimeNum(i)){
+      console.log(i)
+      sum += i;
+    }
+  }
+  console.log("->",sum)
+  return sum;
+}
+
+sumPrimes(10);

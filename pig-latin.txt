@@ -1,0 +1,18 @@
+function translatePigLatin(str) {
+  let newStr;
+  let vowelPos = str.search(/[euioa]/i);
+  switch(vowelPos){
+    case 0:
+      newStr = str+ "way";
+      break;
+    case -1:
+      newStr = str+ "ay";
+      break;
+    default:
+      newStr = str.slice(vowelPos)+str.slice(0,vowelPos)+"ay";
+  } 
+  console.log(str,vowelPos,newStr);
+  return newStr;
+}
+
+translatePigLatin("consonant");

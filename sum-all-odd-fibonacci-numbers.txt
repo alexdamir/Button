@@ -1,0 +1,19 @@
+function sumFibs(num) {
+  let pre = 0;
+  let next;
+  let fib = 1;
+  let sum = 0;
+  while(fib<=num){
+    if( (fib%2) ){
+      sum += fib;
+    }
+    next = pre + fib;
+    pre = fib;
+    fib = next;
+    console.log(pre,fib,sum)
+  
+  }
+  return sum;
+}
+
+sumFibs(4);

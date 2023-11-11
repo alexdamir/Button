@@ -1,0 +1,19 @@
+function convertHTML(str) {
+  let res = "";
+  const dic = {
+    "&" : "&amp;", 
+    "<" : "&lt;", 
+    ">" : "&gt;", 
+    '"' : "&quot;", 
+    "'" : "&apos;" };
+  for(const c of str){
+    if(dic[c]){
+      res += dic[c];
+    } else {
+      res += c;
+    }
+  }
+  return res;
+}
+
+convertHTML("Dolce & Gabbana");

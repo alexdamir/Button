@@ -1,0 +1,24 @@
+function pairElement(str) {
+  const res = [];
+  let pair;
+  for(const c of str) {
+    switch(c){
+      case "A":
+        pair = "T";
+        break;
+      case "T":
+        pair = "A";
+        break;
+      case "C":
+        pair = "G";
+        break;
+      case "G":
+        pair = "C";
+        break;
+    }
+    res.push([c,pair]);
+  }
+  return res;
+}
+
+pairElement("GCG");
