@@ -1,0 +1,17 @@
+function addTogether(...args) {
+  switch(args.length){
+    case 1:
+      if( typeof args[0] === 'number') {
+        return n => {
+          if( typeof n === 'number'){
+            return args[0]+n;
+          }
+        };
+      } 
+    case 2:
+      if( (typeof args[0] === 'number') && (typeof args[1] === 'number') )
+      return args[0]+args[1];
+  }  
+}
+
+addTogether(2,3);

@@ -1,0 +1,8 @@
+function truthCheck(collection, pre) {
+  for(const o of collection){
+    if(!o[pre]) return false;
+  }
+  return true;
+}
+
+truthCheck([{name: "Quincy", role: "Founder", isBot: false}, {name: "Naomi", role: "", isBot: false}, {name: "Camperbot", role: "Bot", isBot: true}], "isBot");
