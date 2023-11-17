@@ -1,0 +1,45 @@
+function checkCashRegister(price, cash, cid) {
+  const round = n => Math.round(n * 100) / 100
+;
+  const cur = {  
+  "PENNY": 0.01,
+  "NICKEL": 0.05,
+  "DIME": 0.1,
+  "QUARTER": 0.25,
+  "ONE": 1,
+  "FIVE":5,
+  "TEN":10,
+  "TWENTY":20,
+  "ONE HUNDRED":100  };
+  const drawer = [...cid];
+  drawer.sort((a,b)=>cur[b[0]]-cur[a[0]]);  
+  const change = [];
+  let sum = cash - price, sum2, sum3=0, sumDrawer=0, res;
+  if( sum <= 0 ) return null;
+  for(let [n,s] of drawer){  
+    sum2 = 0;
+    sumDrawer = round(sumDrawer + s);
+    while(sum>=cur[n]&& s>0){
+      sum = round(sum - cur[n]);
+      s = round(s - cur[n]);
+      sum2 = round( sum2 +cur[n]);
+      //console.log(sum,s,sum2); 
+    }
+    if(sum2>0){
+      sum3 = round(sum3 +sum2);    
+      change.push([n,sum2]);
+    }
+  }
+  //console.log(sum3, change) ;
+  if( sum3 != cash-price ){
+    res = {status:"INSUFFICIENT_FUNDS",change:[]};
+  } else if(sumDrawer==sum3){
+    res = {status:"CLOSED",change:cid};  
+  } else {
+    res = {status:"OPEN",change:change};
+  }
+  console.log(res);
+  return res;
+}
+
+checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]])

@@ -1,0 +1,19 @@
+function palindrome(str) {
+  const rx = /[a-z0-9]/i;
+  let s = "";
+  for(const c of str){
+    if(rx.test(c)){
+      s += c.toLowerCase();
+    }
+  }
+  
+  for(let i=0,j=s.length-1;i<s.length;i++,j--){
+      ;
+      if(s[i]!==s[j]) return false;
+    }
+
+  return true;
+ 
+}
+
+palindrome("eye");

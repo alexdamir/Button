@@ -1,0 +1,8 @@
+function telephoneCheck(str) {
+  const regEx = /^\d\d\d-\d\d\d-\d\d\d\d$|^\(\d\d\d\) {0,1}\d\d\d-\d\d\d\d$|^\d\d\d\d\d\d\d\d\d\d$|^\d\d\d \d\d\d \d\d\d\d$|^1 {0,1}\d\d\d[ \-]\d\d\d[ \-]\d\d\d\d$|^1 {0,1}\(\d\d\d\) {0,1}\d\d\d-\d\d\d\d$/;
+  
+  console.log(regEx.test(str))
+  return regEx.test(str);
+}
+
+telephoneCheck("(6054756961)");
